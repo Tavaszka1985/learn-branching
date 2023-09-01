@@ -1,0 +1,151 @@
+
+PS C:\Learning> git clone git@github.com:Tavaszka1985/learn-branching.git
+Cloning into 'learn-branching'...
+warning: You appear to have cloned an empty repository.
+PS C:\Learning> cd .\learn-branching\
+PS C:\Learning\learn-branching> git status
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+PS C:\Learning\learn-branching> git commit -m "Initial main commit 31.08.2023"
+On branch main
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        initialfile.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Learning\learn-branching> git push
+error: src refspec refs/heads/main does not match any
+error: failed to push some refs to 'github.com:Tavaszka1985/learn-branching.git'
+PS C:\Learning\learn-branching> git push -u origin main  
+error: src refspec main does not match any
+error: failed to push some refs to 'github.com:Tavaszka1985/learn-branching.git'
+PS C:\Learning\learn-branching> git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'github.com:Tavaszka1985/learn-branching.git'
+PS C:\Learning\learn-branching> git commit -m "Initial main commit 31.08.2023"
+On branch main
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        initialfile.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Learning\learn-branching> git add -A
+PS C:\Learning\learn-branching> git commit -m "Initial main commit 31.08.2023"
+[main (root-commit) bf53afa] Initial main commit 31.08.2023
+ 1 file changed, 1 insertion(+)
+ create mode 100644 initialfile.txt
+PS C:\Learning\learn-branching> git push
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 287 bytes | 287.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:Tavaszka1985/learn-branching.git
+ * [new branch]      main -> main
+PS C:\Learning\learn-branching> git checkout -b development
+Switched to a new branch 'development'
+PS C:\Learning\learn-branching> git push
+fatal: The current branch development has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin development
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+PS C:\Learning\learn-branching> git push --set-upstream origin development                           
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'development' on GitHub by visiting:
+remote:      https://github.com/Tavaszka1985/learn-branching/pull/new/development
+remote: 
+To github.com:Tavaszka1985/learn-branching.git
+ * [new branch]      development -> development
+branch 'development' set up to track 'origin/development'.
+PS C:\Learning\learn-branching> git status
+On branch development
+Your branch is up to date with 'origin/development'.
+
+nothing to commit, working tree clean
+PS C:\Learning\learn-branching> git checkout -b feature-branch
+Switched to a new branch 'feature-branch'
+PS C:\Learning\learn-branching> git push
+fatal: The current branch feature-branch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feature-branch
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+PS C:\Learning\learn-branching> git status                                   
+On branch feature-branch
+nothing to commit, working tree clean
+PS C:\Learning\learn-branching> git add -A
+PS C:\Learning\learn-branching> git commit -m "Feature  commit 31.08.2023"     
+[feature-branch 97af671] Feature  commit 31.08.2023
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+PS C:\Learning\learn-branching> git push
+fatal: The current branch feature-branch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feature-branch
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+PS C:\Learning\learn-branching> git push --set-upstream origin feature-branch
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 335 bytes | 335.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'feature-branch' on GitHub by visiting:
+remote:      https://github.com/Tavaszka1985/learn-branching/pull/new/feature-branch
+remote:
+To github.com:Tavaszka1985/learn-branching.git
+ * [new branch]      feature-branch -> feature-branch
+branch 'feature-branch' set up to track 'origin/feature-branch'.
+PS C:\Learning\learn-branching> git checkout development                     
+Switched to branch 'development'
+Your branch is up to date with 'origin/development'.
+PS C:\Learning\learn-branching> git pull
+Already up to date.
+PS C:\Learning\learn-branching> git merge -no-ff feature-branch
+error: did you mean `--no-ff` (with two dashes)?
+PS C:\Learning\learn-branching> git merge --no-ff feature-branch
+Merge made by the 'ort' strategy.
+ initialfile.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+PS C:\Learning\learn-branching> git push
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 261 bytes | 261.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:Tavaszka1985/learn-branching.git
+   bf53afa..c55e765  development -> development
+PS C:\Learning\learn-branching> git checkout main       
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+PS C:\Learning\learn-branching> git pull
+remote: Enumerating objects: 1, done.
+remote: Counting objects: 100% (1/1), done.
+remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (1/1), 630 bytes | 315.00 KiB/s, done.
+From github.com:Tavaszka1985/learn-branching
+   bf53afa..1fc022e  main       -> origin/main
+Updating bf53afa..1fc022e
+Fast-forward
+ initialfile.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+PS C:\Learning\learn-branching> 
